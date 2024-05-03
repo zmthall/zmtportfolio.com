@@ -1,14 +1,43 @@
 // Minification for js, css, and html
 const csso = require('csso');
-const fs = require('fs')
+const fs = require('fs');
 const path = require('path')
 const UglifyJS = require("uglify-js");
 const DIR = path.join(__dirname, '../')
+
+
+// Used to check if folders exist and if they don't it creates them
+const createFolder = (folderPath) => {
+  return new Promise((resolve, reject) => {
+    fs.mkdir(folderPath, { recursive: false }, (err) => {
+      if (err) {
+        reject(err)
+      } else {
+        resolve("done")
+      }
+    })
+  })
+}
+
+async function folderCheck() {
+    const staticDir = `${DIR}static`
+    const files = await fs.promises.readdir(staticDir)
+    if(files.length != 4) {
+        await createFolder(`${staticDir}/unminified-static`)
+        await createFolder(`${staticDir}/unminified-static/stylesheets`)
+        await createFolder(`${staticDir}/unminified-static/scripts`)
+        await createFolder(`${staticDir}/stylesheets`)
+        await createFolder(`${staticDir}/scripts`)
+        await createFolder(`${staticDir}/images`)
+    }
+}
+
 
 // used to load the files within a directory as a text file. Returns the 
 // file content and the file names as fileContent and fileNames respectively.
 async function loadFiles(dir) {
     let fileContent = []
+    
     const fileNames = await fs.promises.readdir(dir)
     if(fileNames.length != 0) {
         for(const idx in fileNames) {
@@ -22,7 +51,7 @@ async function loadFiles(dir) {
 // // function to minify all css in the unminified css folder and save the minified css
 // // to the public static folder
 async function minifyCSS() {
-    const dir = `${DIR}static/unminified-static/stylesheets/`
+    const dir = `${DIR}static/unminified-static/stylesheets`
 
     const { fileContent, fileNames } = await loadFiles(dir)
 
@@ -51,7 +80,7 @@ async function minifyCSS() {
 // // function to minify all js in the unminified css folder and save the minified js
 // // to the public static folder
 async function minifyJS() {
-    const dir = `${DIR}/static/unminified-static/scripts`
+    const dir = `${DIR}static/unminified-static/scripts`
     const { fileContent, fileNames } = await loadFiles(dir)
 
     if(fileNames === undefined)
@@ -76,8 +105,13 @@ async function minifyJS() {
     }
 }
 
-minifyCSS()
-minifyJS()
+async function minification() {
+    await folderCheck()
+    await minifyCSS()
+    await minifyJS()
+}
+
+minification()
 
 module.exports = {
     minifyJS: minifyJS,
