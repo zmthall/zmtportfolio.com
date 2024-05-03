@@ -1,0 +1,42 @@
+{
+  "name": "golden-gate-manor-website",
+  "version": "1.0.0",
+  "description": "Full Stack Website Bundle for Golden Gate Manor, Inc.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "minify": "node ./files/minify.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zmthall/GGM_Website.git"
+  },
+  "keywords": [
+    "full",
+    "stack",
+    "web",
+    "app",
+    "website",
+    "development",
+    "design"
+  ],
+  "author": "Zachary Thallas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zmthall/GGM_Website/issues"
+  },
+  "homepage": "https://github.com/zmthall/GGM_Website#readme",
+  "dependencies": {
+    "csso": "^5.0.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.9",
+    "express": "^4.19.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-openid-connect": "^2.17.1",
+    "uglify-js": "^3.17.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
