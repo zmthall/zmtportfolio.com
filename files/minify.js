@@ -107,8 +107,8 @@ async function minifyJS() {
 
 async function minification() {
     await folderCheck()
-    // await minifyCSS()
-    // await minifyJS()
+    await minifyCSS()
+    await minifyJS()
 }
 
 minification()
