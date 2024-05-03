@@ -20,15 +20,15 @@ const createFolder = (folderPath) => {
 }
 
 async function folderCheck() {
-    const staticDir = `${DIR}static`
-    const files = await fs.promises.readdir(staticDir)
-    if(files.length != 4) {
-        await createFolder(`${staticDir}/unminified-static`)
-        await createFolder(`${staticDir}/unminified-static/stylesheets`)
-        await createFolder(`${staticDir}/unminified-static/scripts`)
-        await createFolder(`${staticDir}/stylesheets`)
-        await createFolder(`${staticDir}/scripts`)
-        await createFolder(`${staticDir}/images`)
+    const files = await fs.promises.readdir(DIR)
+    if(!files.includes('static')) {
+        await createFolder(`${DIR}static`)
+        await createFolder(`${DIR}static/unminified-static`)
+        await createFolder(`${DIR}static/unminified-static/stylesheets`)
+        await createFolder(`${DIR}static/unminified-static/scripts`)
+        await createFolder(`${DIR}static/stylesheets`)
+        await createFolder(`${DIR}static/scripts`)
+        await createFolder(`${DIR}static/images`)
     }
 }
 
@@ -107,8 +107,8 @@ async function minifyJS() {
 
 async function minification() {
     await folderCheck()
-    await minifyCSS()
-    await minifyJS()
+    // await minifyCSS()
+    // await minifyJS()
 }
 
 minification()
