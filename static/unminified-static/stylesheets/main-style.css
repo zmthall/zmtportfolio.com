@@ -1,0 +1,633 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Fira+Sans:ital,wght@0,300;0,500;0,900;1,300;1,500&family=Noto+Serif+Tamil:wght@300;400;900&family=Tangerine:wght@700&display=swap');
+
+/* 
+font-family: 'Black Ops One', cursive;
+font-family: 'Fira Sans', sans-serif;
+font-family: 'Noto Serif Tamil', serif;
+font-family: 'Tangerine', cursive;
+*/
+
+:root {
+    /* Color Variables */
+    --primary-color-black: #272829;
+    --primary-color-grey: hsl(226, 11%, 43%);
+    --accent-color-light-grey: #D8D9DA;
+    --accent-color-beige: #FFF6E0;
+    --text-color: #333333;
+
+    /* Size Variables */
+    --top-nav-height: 2rem;
+    --main-nav-height: 6.5rem;
+
+    /* Font-families */
+    --cursive-main: 'Black Ops One', cursive;
+    --cursive: 'Tangerine', cursive;
+    --sans-serif: 'Fira Sans', sans-serif;
+    --serif: 'Noto Serif Tamil', serif;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: inherit;
+}
+
+body {
+    font-size: 15px;
+    color: var(--text-color);
+    font-family: 'Fira Sans', sans-serif;
+}
+
+/* Sticky position main header used to make it so the top-nav is hidden */
+
+.main-header {
+    position: sticky;
+    top: calc(-1 * var(--top-nav-height));
+    z-index: 2;
+}
+
+/* CSS for Top Nav */
+
+.top-nav {
+    background-color: var(--accent-color-light-grey);
+    height: var(--top-nav-height);
+    padding-right: 1.5rem;
+}
+
+.top-nav ul {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.top-nav li {
+    display: flex;
+    align-items: center;
+}
+
+.top-nav * {
+    height: 100%;
+}
+
+.main-header a,
+.main-header ul {
+    text-decoration: none;
+    list-style: none;
+}
+
+.top-nav a {
+    height: 75%;
+}
+
+.top-nav li:first-child a,
+.top-nav li:nth-child(2) a {
+    height: auto;
+    font-size: 1.25rem;
+    margin-right: 0.5rem;
+    font-weight: bold;
+}
+
+.icon-wrapper {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.icon-wrapper.envelope:hover .plain-envelope {
+    display: none;
+}
+
+.icon-wrapper.envelope .heart-envelope {
+    display: none;
+}
+
+.icon-wrapper.envelope:hover .heart-envelope {
+    display: flex;
+}
+
+.icon-wrapper.telephone:hover .plain-phone {
+    display: none;
+}
+
+.icon-wrapper.telephone .bold-phone {
+    display: none;
+}
+
+.icon-wrapper.telephone:hover .bold-phone {
+    display: flex;
+}
+
+.icon-wrapper.linkedIn:hover {
+    color: black;
+}
+
+.top-nav li:first-child a:hover,
+.top-nav li:nth-child(2) a:hover {
+    color: black;
+}
+
+/* CSS for Main Navigation */
+
+.main-nav {
+    height: var(--main-nav-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--primary-color-black);
+    padding: 0 1.5rem;
+    box-shadow: 0 5px 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* CSS for the logo inside main and mobile navigation*/
+
+.logo-container {
+    /* background-color: white; */
+    border-radius: 100vw;
+    border: 4px solid white;
+    box-shadow: inset 0 0 0px 3px hsl(0, 0%, 80%);
+    outline: 2px solid hsla(210, 3%, 30%, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.main-logo-text {
+    color: white;
+    position: relative;
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
+}
+
+.logo-bold-text {
+    font-family: 'Black Ops One', cursive;
+    font-size: 3.25rem;
+    position: black;
+}
+
+a.logo-home-link {
+    text-decoration: none;
+    display: block;
+    height: 5.4rem;
+    width: 5.4rem;
+    border-radius: 100vw;
+}
+
+.logo-cursive-text {
+    color: hsl(226, 11%, 60%);
+    position: absolute;
+    font-size: 1.5rem;
+    font-family: 'Tangerine', cursive;
+    bottom: 0;
+    right: 0;
+    translate: -10% -10%;
+}
+
+/* logo css ending */
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.main-nav a {
+    color: var(--accent-color-light-grey);
+}
+
+.main-nav a:hover {
+    color: hsl(210, 3%, 60%);
+}
+
+/* CSS for Mobile Navigation */
+
+.mobile-nav {
+    height: var(--main-nav-height);
+    background-color: var(--primary-color-black);
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+    display: none;
+}
+
+/* CTA contact button by mobile nav */
+
+.mobile-phone-icon .icon-wrapper {
+    width: calc(var(--main-nav-height) * 0.3);
+}
+
+.mobile-phone-icon .icon-wrapper .plain-phone {
+    fill: var(--accent-color-light-grey);
+}
+
+.mobile-phone-icon .icon-wrapper .bold-phone {
+    /* fill: hsla(185, 53%, 40%, 0.75); */
+    fill: white;
+}
+
+/* end */
+
+.mobile-dropdown-btn {
+    width: calc(var(--main-nav-height) * 0.5);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background: transparent;
+    background: none;
+    border: none;
+}
+
+.mobile-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.mobile-dropdown-btn:hover>.mobile-nav-container {
+    translate: 0 0;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+    overflow-x: hidden;
+}
+
+.mobile-nav-icon-wrapper {
+    overflow: hidden;
+    cursor: pointer;
+    color: var(--accent-color-light-grey);
+    width: calc(var(--main-nav-height) * 0.5);
+    border-radius: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-nav-icon-wrapper:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: hsla(210, 3%, 50%);
+}
+
+.mobile-nav-container {
+    position: fixed;
+    height: 100vh;
+    width: 50vw;
+    background-color: var(--accent-color-beige);
+    top: 0;
+    right: 0;
+    translate: 100% 0;
+    transition: translate 300ms ease-in-out;
+    overflow-y: hidden;
+    z-index: 2;
+}
+
+.mobile-nav-decor {
+    height: 4rem;
+    width: 100%;
+    position: absolute;
+    background-image: url("/images/Montains.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 0.25rem;
+    rotate: 10deg;
+    /* -webkit-transform: scaleX(-1);
+    transform: scaleX(-1); */
+}
+
+.decor-lines:first-child {
+    left: auto;
+    right: 50%;
+    rotate: -20deg;
+    translate: 1.5rem 0.5rem;
+}
+
+.mobile-nav-container>ul:first-of-type::before {
+    content: "";
+    background-color: hsla(210, 3%, 50%, 0.5);
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    translate: 0 4rem;
+}
+
+.mobile-nav-container ul:first-of-type {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 4.5rem;
+    height: var(--top-nav-height);
+    position: relative;
+}
+
+.mobile-nav-separator {
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+}
+
+.mobile-nav-separator::before,
+.mobile-nav-separator::after {
+    position: absolute;
+    font-family: 'Black Ops One', cursive;
+    font-weight: 500;
+    top: 50%;
+    color: #333333;
+    font-size: 2.5rem;
+    z-index: 2;
+}
+
+.mobile-nav-separator::before {
+    left: 50%;
+    content: "Z";
+    translate: -2.5rem -45%;
+}
+
+.mobile-nav-separator::after {
+    content: "T";
+    left: auto;
+    right: 50%;
+    translate: 2.4rem -45%;
+}
+
+.mobile-nav-separator .separator-lines {
+    height: 2px;
+    width: 40%;
+    position: relative;
+    background-color: hsla(210, 3%, 50%, 0.5);
+    /* background-color: var(--primary-color-grey); */
+}
+
+.mobile-nav-separator .separator-lines:nth-child(2) {
+    width: 65%;
+    position: relative;
+}
+
+/* .mobile-nav-separator::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    height: 2rem;
+    width: 2px;
+    background-color: var(--primary-color-grey);
+    z-index: 2;
+    border-radius: 100vw;
+} */
+
+.mobile-nav-separator .separator-lines:nth-child(2)::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 1rem solid transparent;
+    border-bottom: 1rem solid transparent;
+    border-left: 1rem solid #333333;
+    bottom: 0;
+    translate: -50% 50%;
+}
+
+.mobile-nav-separator .separator-lines:nth-child(2)::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 1rem solid transparent;
+    border-bottom: 1rem solid transparent;
+    border-right: 1rem solid #333333;
+    bottom: 0;
+    translate: -50% 50%;
+}
+
+.mobile-nav-container ul:last-child {
+    display: flex;
+    /* height: 24rem; */
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    border-bottom: 4px solid hsla(210, 3%, 50%, 0.5);
+}
+
+.mobile-nav-container ul:last-child li,
+.mobile-nav-container ul:last-child a {
+    width: 100%;
+    height: 4rem;
+    display: block;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.mobile-nav-container ul:last-child a {
+    height: 100%;
+    padding: 1rem;
+    border-bottom: 2px solid hsla(210, 3%, 85%, 0.5);
+}
+
+.mobile-nav-container ul:last-child a:hover {
+    background-color: hsla(43, 80%, 90%);
+}
+
+/* CSS for visual accessibility */
+
+.top-nav a:focus {
+    outline: 3px solid var(--primary-color-grey);
+    outline-offset: 2px;
+    border-radius: 100vw;
+    overflow: hidden;
+}
+
+.main-nav a:first-child:focus,
+.mobile-nav a:first-child:focus {
+    outline-offset: 3px;
+    box-shadow: none;
+}
+
+.main-nav a:focus,
+.mobile-nav a:focus,
+.mobile-nav button:focus {
+    outline: 3px solid var(--accent-color-light-grey);
+    border-radius: 100vw;
+    outline-offset: 2px;
+    overflow: hidden;
+}
+
+/* CSS for main footer */
+
+.main-footer {
+    height: calc(var(--main-nav-height) * 0.7);
+    width: 100%;
+    background-color: var(--primary-color-black);
+    padding: 0 1.5rem;
+    /* position: relative;
+    z-index: 0; */
+}
+
+.main-nav-footer ul {
+    display: flex;
+    height: inherit;
+    justify-content: flex-start;
+    align-items: center;
+    list-style: none;
+    color: var(--accent-color-light-grey);
+    gap: 1.5rem;
+}
+
+.main-nav-footer,
+.main-nav-footer ul {
+    height: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.main-nav-footer ul li a {
+    display: block;
+    width: calc(var(--main-nav-height) * 0.35);
+}
+
+.main-nav-footer .icon-wrapper:hover {
+    color: white;
+}
+
+.main-nav-footer .text-link.my-learning {
+    margin-left: 1.5rem;
+}
+
+.main-nav-footer .text-link {
+    position: relative;
+    z-index: 0;
+}
+
+.main-nav-footer .text-link {
+    text-decoration: none;
+    width: auto;
+    color: var(--accent-color-light-grey);
+}
+
+.main-nav-footer .text-link:hover {
+    color: hsl(210, 3%, 60%);
+}
+
+.main-nav-footer .text-link.my-learning::before {
+    content: "";
+    width: 2px;
+    height: calc(var(--main-nav-height) * 0.7);
+    background-color: rgba(255, 255, 255, 0.201);
+    position: absolute;
+    left: -1.5rem;
+    top: 50%;
+    translate: 50% -50%;
+    pointer-events: none;
+}
+
+/* Website Buttons */
+
+.primary-btn {
+    display: inline-block;
+    padding: 2rem 3rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: rgba(100, 100, 100);
+    border-radius: 1rem;
+    border: 2px solid black;
+    text-decoration: none;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, border 0.5s ease-in-out;
+}
+
+.primary-btn:hover {
+    background-color: rgba(200, 200, 200, 0.9);
+    color: white;
+    border: 2px solid white;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.3);
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    border: 2px solid white;
+    text-decoration: none;
+    color: white;
+    transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.cta-btn:hover {
+    color: rgba(50, 50, 50);
+    background: white;
+}
+
+/* Media Queries */
+
+@media (max-width: 800px) {
+    .top-nav {
+        display: none;
+    }
+
+    .main-header {
+        top: 0;
+    }
+
+    .main-nav {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: flex;
+    }
+
+    .mobile-nav-icon-wrapper:hover {
+        background-color: transparent;
+        background: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .mobile-nav-container {
+        width: 70vw;
+    }
+
+    .main-nav-footer .text-link.my-learning {
+        display: none;
+    }
+
+    .main-nav-footer .text-link::before {
+        content: "";
+        width: 2px;
+        height: calc(var(--main-nav-height) * 0.7);
+        background-color: rgba(255, 255, 255, 0.201);
+        position: absolute;
+        left: -1.5rem;
+        top: 50%;
+        translate: 50% -50%;
+    }
+}
+
+@media (max-height: 540px) {
+    .mobile-nav-container ul:last-child {
+        height: 20rem;
+        border-bottom: 4px dashed hsla(210, 3%, 50%, 0.5);
+    }
+
+    .mobile-nav-container ul:last-child::before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid hsla(210, 3%, 50%, 0.5);
+        position: absolute;
+        top: 30.6rem;
+    }
+}
